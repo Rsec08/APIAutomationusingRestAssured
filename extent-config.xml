@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <!-- report theme -->
+        <!-- standard, dark -->
+        <theme>standard</theme>
+    
+        <!-- document encoding -->
+        <!-- defaults to UTF-8 -->
+        <encoding>UTF-8</encoding>
+        
+        <!-- protocol for script and stylesheets -->
+        <!-- defaults to https -->
+        <protocol>http</protocol>
+        
+        <!-- title of the document -->
+        <documentTitle>Automation Script</documentTitle>
+        
+        <!-- report name - displayed at top-nav -->
+        <reportName>Automation Report</reportName>
+        
+        <!-- location of charts in the test view -->
+        <!-- top, bottom -->
+        <testViewChartLocation>top</testViewChartLocation>
+        
+        <!-- custom javascript -->
+        <scripts>
+            <![CDATA[
+      $('#step-filters span').click(function() {
+    var t = $(this),
+        status = test.attr('status');
+    
+    if ($('#step-filters span').hasClass('border-bottom-highlight')) {
+        $('#test-view .subview-right tr.log').filter(function() {
+            return ($(this).attr('status') === status);
+        }).removeClass('hide');
+    } else {
+        $('#test-view .subview-right tr.log').addClass('hide').filter(function() {
+            return ($(this).attr('status') === status);
+        }).removeClass('hide');
+    }
+    
+    t.addClass('border-bottom-highlight');
+
+    if (status === 'clear') {
+        $('#step-filters span').removeClass('border-bottom-highlight');
+        $('#test-view .subview-right tr.log').removeClass('hide');
+    }
+});]]>
+        </scripts>
+        
+        <!-- custom styles -->
+        <styles>
+            <![CDATA[
+                
+            ]]>
+        </styles>
+    </configuration>
+</extentreports>

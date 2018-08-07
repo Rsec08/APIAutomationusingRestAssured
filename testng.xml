@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<!-- Configuration for Grid Starts-->
+
+ 
+ <suite name="TestAll" parallel="methods" thread-count="29">
+	
+	 <test name="Sanity_Suite" preserve-order="true">
+		
+		<classes>		    
+		    <class name="Suit.RegressionSuit">
+		    <methods>
+		    <include name="Verify_Login_API"></include>
+		    
+		    </methods>
+		    
+           </class> 
+		    
+		    
+		    
+	    		 </classes>
+
+	</test>
+	
+</suite> 
+ 
+  
+ 
